@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>HShortURL</title>
+        <link rel="stylesheet" href="./index.css">
+        <script src="./index.js"></script>
+    </head>
+    <body>
+        <section>
+            <form onsubmit="shortUrl(event); return false;" class="main-form"
+            >
+                <h1>URL SHORTENER</h1>
+                <section  style="display: flex;">
+                    <section style="margin-right: 10px;">
+                        <label for="originalUrl" >URL:</label>
+                        <br />
+                        <input name="originalUrl" type="url" required placeholder="Place here the url to make it shorter" class="url-input" />
+                    </section>
+                    <section>
+                        <label for="expireDate" >Days to expire:</label>
+                        <br />
+                        <input name="expireDate" type="number" value=10 min=1 max=30 required class="days-left" />
+                    </section>
+                </section>
+                <input type="submit" value="Short it" class="submit-btn"/>
+            </form>
+        </section>
+        <section id="result">
+
+        </section>
+    </body>
+</html>
