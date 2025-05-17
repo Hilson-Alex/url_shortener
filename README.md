@@ -65,7 +65,7 @@ available, see the [tags on this repository](https://github.com/Hilson-Alex/url_
 
 ## License
 
-This project is under the [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/) - for more info read the [LICENSE](LICENSE) file.
+This project is under the [GNU AGPLv3](https://choosealicense.com/licenses/agpl-3.0/) - for more info read the [LICENSE](LICENSE) file.
 
 [Hilson-Alex]: https://github.com/Hilson-Alex
 [latest-tag]: https://github.com/Hilson-Alex/url_shortener/releases/tag/1.0.0
