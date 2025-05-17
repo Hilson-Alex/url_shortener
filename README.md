@@ -1,3 +1,8 @@
+![Golang](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
 # SQLite URL Shortener
 
 This project is a low config url shortener made for hobby. It uses a SQLite database hosted at an auto created .db file, so the only thing you need to do to run is... run it.
@@ -13,7 +18,7 @@ By following these instructions you will get the server running on your local ma
 // To be defined
 
 
-### Cloning and Building
+## Cloning and Building
 
 To get the repository running locally on your machine you will need to install the [Go compiler](https://go.dev/dl/)
 
@@ -43,6 +48,15 @@ go build
 
 And then you will have a `url_shortener.exe` on the root folder. 
 
+## Built With
+
+- [Gin](https://gin-gonic.com/en/) was used to handle the server endpoints and build the API
+- [ncrues/go-sqlite3](https://github.com/ncruces/go-sqlite3) was used as a GCO-free alternative for the sqlite database driver 
+
+## Versioning
+
+[Semantic Versioning](http://semver.org/) was used for versioning. For the versions
+available, see the [tags on this repository](https://github.com/Hilson-Alex/url_shortener/releases/tags/).
 
 ## Author
 
@@ -51,7 +65,7 @@ And then you will have a `url_shortener.exe` on the root folder.
 
 ## License
 
-This project is under the [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/) - for more info read the [LICENSE](LICENSE) file
+This project is under the [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/) - for more info read the [LICENSE](LICENSE) file.
 
 [Hilson-Alex]: https://github.com/Hilson-Alex
 [latest-tag]: https://github.com/Hilson-Alex/url_shortener/releases/tag/1.0.0
