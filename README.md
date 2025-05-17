@@ -15,8 +15,85 @@ By following these instructions you will get the server running on your local ma
 
 ### Installing
 
-// To be defined
+You can Take the Windows Bynary on the [latest tag][latest-tag] and execute, or run the following commands:
 
+```shell
+go install github.com/Hilson-Alex/url_shortener@latest
+url_shortener
+```
+
+### Using
+
+When running, the program will be serving on a port (usually localhost:8080).
+It supplies some API endpoints for shortening and a small and simple frontend as well.
+
+The server routes are the following:
+
+#### GUI
+
+- ***{host}/app***:
+   
+  Allows the User to create a short URL with an expire date between 1 and 30 days and shows the resulting shortened URL.
+
+- ***{host}/app/list***:
+
+  List all shortened URLs
+
+- ***{host}/to/:key***:
+  
+  The actual short URL. Redirects the user for an URL based on the passed key
+
+#### API
+
+- ***{host}/short/create***
+
+  Create a new short URL, it doesn't duplicate URLs in the database.
+  In case of conflict, the longest expire date is kept on the database, but the user expire date is returned to not confuse the user.
+  - Receives a JSON with:
+    ```typescript
+    {
+      originalUrl: string, // The URL to be shortened
+      expireDate: integer  // The number of DAYS to keep the URL active
+    }
+    ```
+  - Returns:
+    ```typescript
+    {
+      key: string,         //The resulting key for the short url
+      originalUrl: string, // The URL to be shortened
+      expireDate: integer, // The number of UNIX timestamp for the expire date
+      shortUrl: string     // The shortened URL. {host}/to/:key
+    }
+    ```
+
+- ***{host}/short/:key***
+  
+  Get the shortened URL without redirecting.
+  - Returns: 
+    ```typescript
+    {
+      key: string,         //The resulting key for the short url
+      originalUrl: string, // The URL to be shortened
+      expireDate: integer, // The number of UNIX timestamp for the expire date
+      shortUrl: string     // The shortened URL. {host}/to/:key
+    }
+    ```
+
+- ***{host}/short/list***
+  
+  Get All the Shortened URL.
+  - Returns: 
+    ```typescript
+    [
+      {
+        key: string,         //The resulting key for the short url
+        originalUrl: string, // The URL to be shortened
+        expireDate: integer, // The number of UNIX timestamp for the expire date
+        shortUrl: string     // The shortened URL. {host}/to/:key
+      },
+      // more
+    ]
+    ```
 
 ## Cloning and Building
 
@@ -68,4 +145,4 @@ available, see the [tags on this repository](https://github.com/Hilson-Alex/url_
 This project is under the [GNU AGPLv3](https://choosealicense.com/licenses/agpl-3.0/) - for more info read the [LICENSE](LICENSE) file.
 
 [Hilson-Alex]: https://github.com/Hilson-Alex
-[latest-tag]: https://github.com/Hilson-Alex/url_shortener/releases/tag/1.0.0
+[latest-tag]: https://github.com/Hilson-Alex/url_shortener/releases/tag/v1.0.0
