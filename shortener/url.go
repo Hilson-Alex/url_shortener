@@ -68,11 +68,11 @@ func (repo *URLConnection) saveURL(entry *ShortURL) error {
 	entry.Key = base62.Encode(time.Now().Unix()) + base62.Encode(rand.Int64N(124))
 	entry.normalizeExpireDate()
 	fmt.Println(entry.ExpireDate)
-	var processedDate = entry.ExpireDate
 	if saved, err := repo.findByUrl(entry.OriginalUrl); err == nil {
 		entry.Key = saved.Key
-		if saved.ExpireDate > processedDate {
+		if saved.ExpireDate > entry.ExpireDate {
 			entry.ExpireDate = saved.ExpireDate
+			return nil
 		}
 	}
 	_, err := repo.db.Exec(
@@ -84,9 +84,7 @@ func (repo *URLConnection) saveURL(entry *ShortURL) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println(processedDate)
 
-	entry.ExpireDate = processedDate
 	return nil
 }
 
